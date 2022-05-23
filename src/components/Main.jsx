@@ -1,21 +1,25 @@
-import React from 'react'
-import data from  './data'
-import lion1 from './assets/1.jpg'
+import React, { useState, useEffect } from "react";
+import data from "./data";
+import SimpleImageSlider from "react-simple-image-slider";
+
 // 'src/components/assets/4.jpg'
+const images  =  data.map(img =>(
+    Object.assign({url:img})
+))
 
+console.log(images)
 function Main() {
-  return (
-    <>
+return(
     <div className="container">
-        <img
-        className='img-responsive'
-        src={lion1} alt="" />
-
-        <button>prev</button>
-        <button>next</button>
+    <SimpleImageSlider
+        width={'100%'}
+        height={'80vh'}
+        images={images}
+        showBullets={true}
+        showNavs={true}
+      />
     </div>
-    </>
-  )
+)
 }
 
-export default Main
+export default Main;
